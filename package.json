@@ -2,7 +2,11 @@
   "name": "random-tune",
   "version": "1.0.0",
   "description": "A packaged foo fooer for fooing foos",
-  "dependencies": {},
-  "devDependencies": {},
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.11.1"
+  },
   "scripts": {}
 }
