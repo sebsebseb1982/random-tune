@@ -3,13 +3,10 @@ import * as fs from 'fs';
 
 const app: express.Application = express();
 
-let files = fs.readdirSync('./tunes');
-
-console.log('files', files);
+let tunes = fs.readdirSync('./tunes');
 
 app.get('/random-tune', (req, res) => {
-
-    res.sendFile('/home/pi/random-tune/tunes/' + files[0]);
+    res.sendFile('/home/pi/random-tune/tunes/' + tunes[Math.floor(Math.random() * tunes.length)]);
 });
 
 let port = 8080;
