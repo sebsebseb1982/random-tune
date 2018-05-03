@@ -1,12 +1,19 @@
+import * as express from 'express';
+import * as fs from 'fs';
 
-const express = require('express');
-const app = express();
+const app: express.Application = express();
+
+let files = fs.readdirSync('./..');
+
+console.log('files', files);
 
 app.get('/random-tune', (req, res) => {
-    res.send('Hello World!')
+
+    //res.sendFile();
 });
 
-app.listen(666, () => {
-    console.log('Example app listening on port 3000!')
-});
+let port = 666;
 
+app.listen(port, () => {
+    console.log(`Listening at http://localhost:${port}/`);
+});
