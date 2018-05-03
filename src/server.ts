@@ -12,7 +12,7 @@ app.get('/random-tune', (req, res) => {
     res.sendFile('/tunes' + files[0]);
 });
 
-let port = 6666;
+let port = 8080;
 
 app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}/`);
