@@ -9,10 +9,10 @@ console.log('files', files);
 
 app.get('/random-tune', (req, res) => {
 
-    //res.sendFile();
+    res.sendFile(files[0]);
 });
 
-let port = 666;
+let port = 6666;
 
 app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}/`);
