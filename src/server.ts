@@ -3,7 +3,7 @@ import * as fs from 'fs';
 
 const app: express.Application = express();
 
-let files = fs.readdirSync('./..');
+let files = fs.readdirSync('./tunes');
 
 console.log('files', files);
 
