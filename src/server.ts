@@ -9,7 +9,7 @@ console.log('files', files);
 
 app.get('/random-tune', (req, res) => {
 
-    res.sendFile(files[0]);
+    res.sendFile('/tunes' + files[0]);
 });
 
 let port = 6666;
