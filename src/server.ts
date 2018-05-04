@@ -5,16 +5,19 @@ import * as _ from "lodash";
 const app: express.Application = express();
 
 let tunes = fs.readdirSync('./tunes');
-let randomTunePath = '/home/pi/random-tune/tunes/' + tunes[Math.floor(Math.random() * tunes.length)];
 
+let randomTunePath;
+
+let randomizeNextTune = () => {
+    console.log('Randomizing next tune');
+    randomTunePath = '/home/pi/random-tune/tunes/' + tunes[Math.floor(Math.random() * tunes.length)];
+};
+
+randomizeNextTune();
 app.get('/random-tune', (req, res) => {
     console.log('Serving ', randomTunePath);
-    _.debounce(() => {
-        console.log('Randomizing next tune');
-        randomTunePath = '/home/pi/random-tune/tunes/' + tunes[Math.floor(Math.random() * tunes.length)];
-    }, 500);
-    console.log('tutu', _);
-    console.log('tata', _.debounce);
+    _.debounce(randomizeNextTune, 500);
+
     res.sendFile(randomTunePath);
 });
 
