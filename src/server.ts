@@ -10,8 +10,10 @@ let randomTunePath = '/home/pi/random-tune/tunes/' + tunes[Math.floor(Math.rando
 app.get('/random-tune', (req, res) => {
     console.log('Serving ', randomTunePath);
     _.debounce(() => {
+        console.log('Randomizing next tune');
         randomTunePath = '/home/pi/random-tune/tunes/' + tunes[Math.floor(Math.random() * tunes.length)];
     }, 500);
+    console.log('tutu');
     res.sendFile(randomTunePath);
 });
 
