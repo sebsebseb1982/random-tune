@@ -8,6 +8,7 @@ let tunes = fs.readdirSync('./tunes');
 app.get('/random-tune', (req, res) => {
     //let randomTunePath = '/home/pi/random-tune/tunes/' + tunes[Math.floor(Math.random() * tunes.length)];
     let randomTunePath = '/home/pi/random-tune/tunes/' + tunes[0];
+    console.log('req:', req);
     console.log('Serving ', randomTunePath);
     res.sendFile(randomTunePath);
 });
