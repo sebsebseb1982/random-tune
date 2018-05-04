@@ -13,7 +13,8 @@ app.get('/random-tune', (req, res) => {
         console.log('Randomizing next tune');
         randomTunePath = '/home/pi/random-tune/tunes/' + tunes[Math.floor(Math.random() * tunes.length)];
     }, 500);
-    console.log('tutu');
+    console.log('tutu', _);
+    console.log('tata', _.debounce);
     res.sendFile(randomTunePath);
 });
 
