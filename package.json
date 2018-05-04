@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "A packaged foo fooer for fooing foos",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "lodash": "^4.17.10"
   },
   "devDependencies": {
-    "@types/express": "^4.11.1"
+    "@types/express": "^4.11.1",
+    "@types/lodash": "^4.14.108"
   },
   "scripts": {}
 }
