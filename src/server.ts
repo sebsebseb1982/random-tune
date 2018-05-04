@@ -8,16 +8,18 @@ let tunes = fs.readdirSync('./tunes');
 
 let randomTunePath;
 
-let randomizeNextTune = () => {
-    console.log('Randomizing next tune');
-    randomTunePath = '/home/pi/random-tune/tunes/' + tunes[Math.floor(Math.random() * tunes.length)];
-};
+let randomizeTuneDebounced =  _.debounce(
+    () => {
+        console.log('Randomizing next tune');
+        randomTunePath = '/home/pi/random-tune/tunes/' + tunes[Math.floor(Math.random() * tunes.length)];
+    },
+    500
+);
 
-randomizeNextTune();
+randomizeTuneDebounced();
 app.get('/random-tune', (req, res) => {
     console.log('Serving ', randomTunePath);
-    _.debounce(randomizeNextTune, 500);
-
+    randomizeTuneDebounced();
     res.sendFile(randomTunePath);
 });
 
